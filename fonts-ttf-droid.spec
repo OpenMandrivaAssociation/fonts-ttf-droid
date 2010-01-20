@@ -3,7 +3,7 @@
 Summary: Droid Fonts
 Name: fonts-ttf-droid
 Version: 1.0
-Release: %mkrel 2
+Release: %mkrel 3
 License: Apache License
 Group: System/Fonts/True type
 URL: http://www.droidfonts.com/
@@ -43,14 +43,6 @@ ln -s ../../..%_datadir/fonts/TTF/droid \
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%post
-[ -x %{_bindir}/fc-cache ] && %{_bindir}/fc-cache 
-
-%postun
-if [ "$1" = "0" ]; then
-  [ -x %{_bindir}/fc-cache ] && %{_bindir}/fc-cache 
-fi
 
 
 %files
