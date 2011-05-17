@@ -10,6 +10,7 @@ URL: http://www.droidfonts.com/
 Source0: %{pkgname}-%{version}.tar.bz2
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch: noarch
+BuildRequires: fontconfig
 BuildRequires: freetype-tools
 
 %description
