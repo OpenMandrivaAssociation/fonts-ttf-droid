@@ -30,20 +30,20 @@ browsers and for other screen text.
 %build
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/fonts/TTF/droid
+mkdir -p %{buildroot}%{_datadir}/fonts/TTF/droid
 
-install -m 644 *.ttf $RPM_BUILD_ROOT%{_datadir}/fonts/TTF/droid
-ttmkfdir $RPM_BUILD_ROOT%{_datadir}/fonts/TTF/droid > $RPM_BUILD_ROOT%{_datadir}/fonts/TTF/droid/fonts.dir
-ln -s fonts.dir $RPM_BUILD_ROOT%{_datadir}/fonts/TTF/droid/fonts.scale
+install -m 644 *.ttf %{buildroot}%{_datadir}/fonts/TTF/droid
+ttmkfdir %{buildroot}%{_datadir}/fonts/TTF/droid > %{buildroot}%{_datadir}/fonts/TTF/droid/fonts.dir
+ln -s fonts.dir %{buildroot}%{_datadir}/fonts/TTF/droid/fonts.scale
 
 mkdir -p %{buildroot}%_sysconfdir/X11/fontpath.d/
 ln -s ../../..%_datadir/fonts/TTF/droid \
     %{buildroot}%_sysconfdir/X11/fontpath.d/ttf-droid:pri=50
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 
 %files
