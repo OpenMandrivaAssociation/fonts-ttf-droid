@@ -3,7 +3,7 @@
 Summary: Droid Fonts
 Name: fonts-ttf-droid
 Version: 1.0
-Release: %mkrel 7
+Release: %mkrel 9
 License: Apache License
 Group: System/Fonts/True type
 URL: http://www.droidfonts.com/
@@ -30,20 +30,20 @@ browsers and for other screen text.
 %build
 
 %install
-rm -rf %{buildroot}
+rm -rf $RPM_BUILD_ROOT
 
-mkdir -p %{buildroot}%{_datadir}/fonts/TTF/droid
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/fonts/TTF/droid
 
-install -m 644 *.ttf %{buildroot}%{_datadir}/fonts/TTF/droid
-ttmkfdir %{buildroot}%{_datadir}/fonts/TTF/droid > %{buildroot}%{_datadir}/fonts/TTF/droid/fonts.dir
-ln -s fonts.dir %{buildroot}%{_datadir}/fonts/TTF/droid/fonts.scale
+install -m 644 *.ttf $RPM_BUILD_ROOT%{_datadir}/fonts/TTF/droid
+ttmkfdir $RPM_BUILD_ROOT%{_datadir}/fonts/TTF/droid > $RPM_BUILD_ROOT%{_datadir}/fonts/TTF/droid/fonts.dir
+ln -s fonts.dir $RPM_BUILD_ROOT%{_datadir}/fonts/TTF/droid/fonts.scale
 
 mkdir -p %{buildroot}%_sysconfdir/X11/fontpath.d/
 ln -s ../../..%_datadir/fonts/TTF/droid \
     %{buildroot}%_sysconfdir/X11/fontpath.d/ttf-droid:pri=50
 
 %clean
-rm -rf %{buildroot}
+rm -rf $RPM_BUILD_ROOT
 
 
 %files
@@ -54,4 +54,39 @@ rm -rf %{buildroot}
 %verify(not mtime) %{_datadir}/fonts/TTF/droid/fonts.dir
 %{_datadir}/fonts/TTF/droid/fonts.scale
 %{_sysconfdir}/X11/fontpath.d/ttf-droid:pri=50
+
+
+
+%changelog
+* Tue May 17 2011 Funda Wang <fwang@mandriva.org> 1.0-7mdv2011.0
++ Revision: 675415
+- br fontconfig for fc-query used in new rpm-setup-build
+
+* Tue May 17 2011 Funda Wang <fwang@mandriva.org> 1.0-6
++ Revision: 675179
+- rebuild for new rpm-setup
+
+* Tue May 03 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0-5
++ Revision: 664327
+- mass rebuild
+
+  + Claudio Matsuoka <claudio@mandriva.com>
+    - imported package fonts-ttf-droid
+
+* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0-4mdv2011.0
++ Revision: 610726
+- rebuild
+
+* Wed Jan 20 2010 Paulo Ricardo Zanoni <pzanoni@mandriva.com> 1.0-3mdv2010.1
++ Revision: 494136
+- fc-cache is now called by an rpm filetrigger
+
+* Fri Sep 11 2009 Thierry Vignaud <tv@mandriva.org> 1.0-2mdv2010.0
++ Revision: 437570
+- rebuild
+
+* Thu Apr 02 2009 Frederic Crozat <fcrozat@mandriva.com> 1.0-1mdv2009.1
++ Revision: 363515
+- imported package fonts-ttf-droid
+
 
