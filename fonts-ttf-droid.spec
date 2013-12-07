@@ -3,7 +3,7 @@
 Summary:	Droid Fonts
 Name:		fonts-ttf-droid
 Version:	1.0
-Release:	11
+Release:	12
 License:	Apache License
 Group:		System/Fonts/True type
 Url:		http://www.droidfonts.com/
