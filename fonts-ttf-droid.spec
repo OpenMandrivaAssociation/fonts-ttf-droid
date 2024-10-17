@@ -6,7 +6,7 @@ Version:	1.0
 Release:	22
 License:	Apache License
 Group:		System/Fonts/True type
-Url:		http://www.droidfonts.com/
+Url:		https://www.droidfonts.com/
 Source0:	%{pkgname}-%{version}.tar.bz2
 BuildArch:	noarch
 BuildRequires:	fontconfig
